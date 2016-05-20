@@ -11,10 +11,10 @@ var transport = nodemailer.createTransport(smtpTransport({
 }));
 
 var message = {
-    from: 'Node Mailer <nexia@soy.nexia.jp>',
-    to: 'test05@nxa.jp',
+    from: 'Node Mailer <nexia@nexia.jp>',
+    to: 'mobile@nxa.jp',
     subject: "Nodemailer Test. AAAAAA",
-    text: "Hello to myself! AAAAAAAAA"
+    text: "Hello to myself! AAAAA"
 };
 
 transport.sendMail(message, function(err, success) {

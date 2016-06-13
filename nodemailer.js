@@ -15,13 +15,26 @@
 //   }
 // }
 //
+//
+//  ****** ssl , CRAM-MD5 auth *****
+//
+//  "SMTP": {
+//     "host": "mail.foge.jp",
+//     "port": 465,
+//     "authMethod": "CRAM-MD5",
+//     "auth": {
+//       "user": "foge@xxx.jp",
+//       "pass": "pass-text"
+//     }
+//  },
+//
+
 var Conf;
 var error = console.error
 var log   = console.log;
 var nodemailer = require("nodemailer");
 var smtpTransport = require('nodemailer-smtp-transport');
 var fs    = require('fs');
-var path  = require("path")
 var argv  = require('argv');
 
 var scriptname = ( process.argv[ 1 ] || '' ).split( '/' ).pop();
@@ -31,7 +44,7 @@ argv.option([
     name: 'Conf',
     short: 'C',
     type : 'string',
-    description :'Use alternate configuration file.',
+    description :'Use alternate configuration file. default file is [ Conf.json ]',
     example: "'"+scriptname+" -C xxxx.json'"
   }
 ]);

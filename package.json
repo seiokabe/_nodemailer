@@ -5,6 +5,7 @@
   "description": "node mail sender",
   "main": "nodemailer.js",
   "dependencies": {
+    "argv": "0.0.2",
     "nodemailer": "~2.4.1",
     "nodemailer-smtp-transport": "~2.5.0"
   },

@@ -74,10 +74,19 @@ if( typeof Conf !== 'object' ) return error("Error: Conf is not Object.");
 
 var SMTP = Conf.SMTP;
 
-var transport = nodemailer.createTransport(smtpTransport({
-    host: SMTP.host,
-    port: SMTP.port
-}));
+if ( typeof SMTP.auth !== 'undefined' ) {
+
+  var transport = nodemailer.createTransport(smtpTransport( SMTP ));
+
+} else {
+
+  var transport = nodemailer.createTransport(smtpTransport({
+      host: SMTP.host,
+      port: SMTP.port
+  }));
+
+}
+
 
 var message = Conf.Message;
 
